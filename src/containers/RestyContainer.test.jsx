@@ -17,8 +17,8 @@ describe('RESTy Container', () => {
 
     //test raw json text area here
     //test for submit button here
-    const submitButton = await screen.findByRole('button', { name: 'get-api' });
-    // userEvent.click(submitButton);
+    // const submit = screen.getByRole('button', { name: 'get-api' });
+    // userEvent.click(submit);
 
     const ul = await screen.findByRole('list', { name: 'urls' });
     expect(ul).toBeInTheDocument();

@@ -1,4 +1,14 @@
-export const fetchApi = async (url) => {
-  const res = await fetch(url);
-  return res.json();
+export const fetchApi = async (url, method, body) => {
+  if(method === 'GET' || method === 'DELETE') {
+    return fetch(url)
+      .then((res) => res.json());
+  }
+  return fetch(
+    url, {
+      method,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body,
+    }).then((res) => res.json());
 };
