@@ -1,17 +1,24 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import RestyContainer from './RestyContainer';
 
 describe('RESTy Container', () => {
   it('should render RESTy App components on page', async () => {
     render(<RestyContainer />);
 
-    // screen.getByAltText('loading spinner');
+    // eslint-disable-next-line max-len
+    const urlInput = screen.getByPlaceholderText('URL', { placeholder: '' });
+    expect(urlInput).toBeEmptyDOMElement();
+    
+    //test for radio buttons here
+    const radioInput = await screen.findByDisplayValue('GET');
+    userEvent.click(radioInput);
 
-    const input = await screen.getByPlaceholderText('URL', { placeholder: '' });
-    expect(input).toBeEmptyDOMElement();
-
+    //test raw json text area here
     //test for submit button here
+    const submitButton = await screen.findByRole('button', { name: 'get-api' });
+    // userEvent.click(submitButton);
 
     const ul = await screen.findByRole('list', { name: 'urls' });
     expect(ul).toBeInTheDocument();

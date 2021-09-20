@@ -15,6 +15,7 @@ const Controls = ({ url, body, onChange, onSubmit }) => {
         />
         <label htmlFor="get">GET</label>
         <input
+          aria-label="method"
           id="get"
           type="radio"
           name="method"
@@ -22,6 +23,7 @@ const Controls = ({ url, body, onChange, onSubmit }) => {
           onChange={onChange} />
         <label htmlFor="put">PUT</label>
         <input
+          aria-label="method"
           id="put"
           type="radio"
           name="method"
@@ -29,6 +31,7 @@ const Controls = ({ url, body, onChange, onSubmit }) => {
           onChange={onChange} />
         <label htmlFor="post">POST</label>
         <input
+          aria-label="method"
           id="post"
           type="radio"
           name="method"
@@ -36,6 +39,7 @@ const Controls = ({ url, body, onChange, onSubmit }) => {
           onChange={onChange} />
         <label htmlFor="patch">PATCH</label>
         <input
+          aria-label="method"
           id="patch"
           type="radio"
           name="method"
@@ -43,13 +47,14 @@ const Controls = ({ url, body, onChange, onSubmit }) => {
           onChange={onChange} />
         <label htmlFor="delete">DELETE</label>
         <input
+          aria-label="method"
           id="delete"
           type="radio"
           name="method"
           value="DELETE"
           onChange={onChange} />
         <button
-          aria-label="request"
+          aria-label="get-api"
           type="submit">Go!</button>
         <textarea
           placeholder="Raw JSON Body"
