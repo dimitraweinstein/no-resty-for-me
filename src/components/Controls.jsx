@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Controls = ({ url, body, onChange, onSubmit }) => {
+const Controls = ({ url, body, onChange, onClick, onSubmit }) => {
   return (
     <>
       <form onSubmit={onSubmit}>
@@ -13,11 +13,26 @@ const Controls = ({ url, body, onChange, onSubmit }) => {
           value={url}
           onChange={onChange}
         />
-        <button type="radio">Get</button>
-        <button type="radio">Put</button>
-        <button type="radio">Post</button>
-        <button type="radio">Patch</button>
-        <button type="radio">Delete</button>
+        <button
+          type="radio"
+          aria-label="method"
+          onClick={onClick}>Get</button>
+        <button
+          type="radio"
+          aria-label="method"
+          onClick={onClick}>Put</button>
+        <button
+          type="radio"
+          aria-label="method"
+          onClick={onClick}>Post</button>
+        <button
+          type="radio"
+          aria-label="method"
+          onClick={onClick}>Patch</button>
+        <button
+          type="radio"
+          aria-label="method"
+          onClick={onClick}>Delete</button>
         <button
           aria-label="request"
           type="submit">Go!</button>
@@ -38,6 +53,7 @@ Controls.propTypes = {
   url: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
 };
 

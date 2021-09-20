@@ -10,7 +10,10 @@ const Display = ({ jsonResponse }) => {
         role="response"
         className="response-div"
       >
-        <ReactJson src={jsonResponse} />
+        <ReactJson
+          displayDataTypes={false}
+          enableClipboard={false}
+          src={jsonResponse} />
       </div>
     </>
   );

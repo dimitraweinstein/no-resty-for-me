@@ -9,12 +9,19 @@ export default class RestyContainer extends Component {
   state = {
     loading: false,
     url: '',
+    method: '',
     body: '',
-    jsonResponse: {},
+    jsonResponse: {
+      'Fetch Me!': 'Fetch Me Right Now!'
+    }
   }
 
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
+  }
+
+  handleClick = (event) => {
+
   }
 
   handleSubmit = async (event) => {
