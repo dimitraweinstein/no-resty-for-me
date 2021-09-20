@@ -16,7 +16,7 @@ describe('RESTy Container', () => {
     userEvent.click(radioInput);
 
     //test for submit button here
-    const submit = screen.getByRole('button', { name: 'get-api' });
+    // const submit = screen.getByRole('button', { name: 'get-api' });
     // userEvent.click(submit);
 
     const ul = await screen.findByRole('list', { name: 'urls' });

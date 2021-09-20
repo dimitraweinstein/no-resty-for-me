@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import React, { Component } from 'react';
+import Header from '../components/Header';
 import Controls from '../components/Controls';
 import History from '../components/HistoryList';
 import Display from '../components/Display';
@@ -60,6 +61,7 @@ export default class RestyContainer extends Component {
 
     return (
       <>
+        <Header />
         <Controls
           url={url}
           method={method}
