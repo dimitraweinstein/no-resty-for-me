@@ -20,21 +20,39 @@ export default class RestyContainer extends Component {
   // localStoredURL = localStorage.getItem(this.state.url);
 
   handleChange = (event) => {
-    this.setState({ [ event.target.name ]: event.target.value });
+    this.setState({
+      [ event.target.name ]: event.target.value
+    });
   }
+
+  // handleClick = (event) => {
+  //   event.preventDefault();
+  //   const { url } = localStorage;
+  //   localStorage.getItem({
+  //     url: url.url,
+  //     method: url.method
+  //   });
+    
+  // }
 
   handleSubmit = (event) => {
     event.preventDefault();
+
     const { url, method, body, urlList } = this.state;
-    // localStorage.setItem(['url'], this.state.url);
+
     fetchApi(url, method, body)
-      // .then((url) => localStorage.setItem(url))
-      .then((jsonResponse => this.setState({ jsonResponse })))
-      .then(this.setState({ method, url, body }))
-      .then((url, method) => this.setState(urlList.push({ method, url })));
-    
-    console.log(this.state, 'STATE------');
-    console.log(urlList, 'URLs------');
+      .then((jsonResponse => this.setState({
+        jsonResponse,
+        method,
+        url,
+        body,
+        urlList: [...urlList,
+          {
+            method,
+            url
+          }
+        ]
+      })));
   }
 
   render() {
@@ -52,6 +70,7 @@ export default class RestyContainer extends Component {
         <History
           urlList={urlList}
           onChange={this.handleChange}
+          onClick={this.handleClick}
           onSubmit={this.handleSubmit}
         />
         <Display jsonResponse={jsonResponse} />
