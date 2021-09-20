@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Controls = ({ url, body, onChange, onClick, onSubmit }) => {
+const Controls = ({ url, body, onChange, onSubmit }) => {
   return (
     <>
       <form onSubmit={onSubmit}>
@@ -13,26 +13,41 @@ const Controls = ({ url, body, onChange, onClick, onSubmit }) => {
           value={url}
           onChange={onChange}
         />
-        <button
+        <label htmlFor="get">GET</label>
+        <input
+          id="get"
           type="radio"
-          aria-label="method"
-          onClick={onClick}>Get</button>
-        <button
+          name="method"
+          value="GET"
+          onChange={onChange} />
+        <label htmlFor="put">PUT</label>
+        <input
+          id="put"
           type="radio"
-          aria-label="method"
-          onClick={onClick}>Put</button>
-        <button
+          name="method"
+          value="PUT"
+          onChange={onChange} />
+        <label htmlFor="post">POST</label>
+        <input
+          id="post"
           type="radio"
-          aria-label="method"
-          onClick={onClick}>Post</button>
-        <button
+          name="method"
+          value="POST"
+          onChange={onChange} />
+        <label htmlFor="patch">PATCH</label>
+        <input
+          id="patch"
           type="radio"
-          aria-label="method"
-          onClick={onClick}>Patch</button>
-        <button
+          name="method"
+          value="PATCH"
+          onChange={onChange} />
+        <label htmlFor="delete">DELETE</label>
+        <input
+          id="delete"
           type="radio"
-          aria-label="method"
-          onClick={onClick}>Delete</button>
+          name="method"
+          value="DELETE"
+          onChange={onChange} />
         <button
           aria-label="request"
           type="submit">Go!</button>
@@ -53,7 +68,6 @@ Controls.propTypes = {
   url: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  onClick: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
 };
 
