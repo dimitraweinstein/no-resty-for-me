@@ -4,12 +4,15 @@ import ReactJson from 'react-json-view';
 
 const Display = ({ jsonResponse }) => {
   return (
-    <div
-      aria-label="response"
-      role="response"
-      className="response-div">
-      <ReactJson src={jsonResponse} />
-    </div>
+    <>
+      <div
+        aria-label="response"
+        role="response"
+        className="response-div"
+      >
+        <ReactJson src={jsonResponse} />
+      </div>
+    </>
   );
 };
 
