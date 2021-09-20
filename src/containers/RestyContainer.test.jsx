@@ -15,7 +15,6 @@ describe('RESTy Container', () => {
     const radioInput = await screen.findByDisplayValue('GET');
     userEvent.click(radioInput);
 
-    //test raw json text area here
     //test for submit button here
     // const submit = screen.getByRole('button', { name: 'get-api' });
     // userEvent.click(submit);
@@ -25,6 +24,7 @@ describe('RESTy Container', () => {
 
     const div = await screen.findByRole('response', { name: 'response' });
     expect(div).toBeInTheDocument();
+    expect(div).toMatchSnapshot();
 
   });
 });
