@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Controls from '../components/Controls';
 import History from '../components/History';
 import Display from '../components/Display';
+import { fetchApi } from '../services/restyFetchApi';
 
 
 export default class RestyContainer extends Component {
@@ -16,17 +17,17 @@ export default class RestyContainer extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
     this.setState({ loading: true });
-
     //fetch data function here 
+    const jsonResponse = await fetchApi(this.state.url);
     //set fetched data to state and set loading state to false
+    this.setState({ jsonResponse, loading: false });
   }
 
   render() {
     const { loading, url, body, jsonResponse } = this.state;
-    
     return (
       <>
         <Controls

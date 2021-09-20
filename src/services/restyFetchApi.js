@@ -1,4 +1,4 @@
-export const getResponse = async (url) => {
-  const response = await fetch(url);
-  return response.json();
+export const fetchApi = async (url) => {
+  const res = await fetch(url);
+  return res.json();
 };
