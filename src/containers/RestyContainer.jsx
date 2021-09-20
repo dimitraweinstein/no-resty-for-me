@@ -1,6 +1,7 @@
+/* eslint-disable max-len */
 import React, { Component } from 'react';
 import Controls from '../components/Controls';
-import History from '../components/History';
+import History from '../components/HistoryList';
 import Display from '../components/Display';
 import { fetchApi } from '../services/restyFetchApi';
 
@@ -29,12 +30,16 @@ export default class RestyContainer extends Component {
     fetchApi(url, method, body)
       // .then((url) => localStorage.setItem(url))
       .then((jsonResponse => this.setState({ jsonResponse })))
-      .then((url, method) => urlList.push({ method, url }));
+      .then(this.setState({ method, url, body }))
+      .then((url, method) => this.setState(urlList.push({ method, url })));
+    
+    console.log(this.state, 'STATE------');
+    console.log(urlList, 'URLs------');
   }
 
   render() {
-    const { url, method, body, jsonResponse } = this.state;
-   
+    const { url, method, body, jsonResponse, urlList } = this.state;
+
     return (
       <>
         <Controls
@@ -45,6 +50,8 @@ export default class RestyContainer extends Component {
           onSubmit={this.handleSubmit}
         />
         <History
+          urlList={urlList}
+          onChange={this.handleChange}
           onSubmit={this.handleSubmit}
         />
         <Display jsonResponse={jsonResponse} />

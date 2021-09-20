@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Url from './Url';
 
 const History = ({ urlList }) => {
   return (
@@ -13,17 +14,16 @@ const History = ({ urlList }) => {
             />
           </li>
         ))}
-        
       </ul>
     </aside>
   );
 };
 
 History.propTypes = {
-  urlList: PropTypes.object(
+  urlList: PropTypes.arrayOf(
     PropTypes.shape({
-      method: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
+      method: PropTypes.string,
+      url: PropTypes.string,
     })
   ).isRequired
 };
