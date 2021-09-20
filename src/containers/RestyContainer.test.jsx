@@ -11,7 +11,13 @@ describe('RESTy Container', () => {
     const input = await screen.getByPlaceholderText('URL', { placeholder: '' });
     expect(input).toBeEmptyDOMElement();
 
+    //test for submit button here
 
+    const ul = await screen.findByRole('list', { name: 'urls' });
+    expect(ul).toBeInTheDocument();
+
+    const div = await screen.findByRole('response', { name: 'response' });
+    expect(div).toBeInTheDocument();
 
   });
 });
