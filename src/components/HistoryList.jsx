@@ -2,16 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Url from './Url';
 
+
 const History = ({ urlList }) => {
   return (
     <aside aria-label="history">
       <ul aria-label="urls">
-        {urlList.map((url) => (
-          <li key={url}>
-            <Url
-              method={urlList.method}
-              url={urlList.url}
-            />
+        {urlList.map((url, i) => (
+          <li key={i}>
+            <a
+              href={`${url}`}
+            >
+              <Url
+                method={url.method}
+                url={url.url}
+              />
+            </a>
           </li>
         ))}
       </ul>

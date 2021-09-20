@@ -13,57 +13,61 @@ const Controls = ({ url, body, onChange, onSubmit }) => {
           value={url}
           onChange={onChange}
         />
-        <label htmlFor="get">GET</label>
-        <input
-          aria-label="method"
-          id="get"
-          type="radio"
-          name="method"
-          value="GET"
-          onChange={onChange} />
-        <label htmlFor="put">PUT</label>
-        <input
-          aria-label="method"
-          id="put"
-          type="radio"
-          name="method"
-          value="PUT"
-          onChange={onChange} />
-        <label htmlFor="post">POST</label>
-        <input
-          aria-label="method"
-          id="post"
-          type="radio"
-          name="method"
-          value="POST"
-          onChange={onChange} />
-        <label htmlFor="patch">PATCH</label>
-        <input
-          aria-label="method"
-          id="patch"
-          type="radio"
-          name="method"
-          value="PATCH"
-          onChange={onChange} />
-        <label htmlFor="delete">DELETE</label>
-        <input
-          aria-label="method"
-          id="delete"
-          type="radio"
-          name="method"
-          value="DELETE"
-          onChange={onChange} />
-        <button
-          aria-label="get-api"
-          type="submit">Go!</button>
-        <textarea
-          placeholder="Raw JSON Body"
-          name="body"
-          value={body}
-          rows="5"
-          cols="40"
-          onChange={onChange}
-        ></textarea>
+        <div>
+          <label htmlFor="get">GET</label>
+          <input
+            aria-label="method"
+            id="get"
+            type="radio"
+            name="method"
+            value="GET"
+            onChange={onChange} />
+          <label htmlFor="put">PUT</label>
+          <input
+            aria-label="method"
+            id="put"
+            type="radio"
+            name="method"
+            value="PUT"
+            onChange={onChange} />
+          <label htmlFor="post">POST</label>
+          <input
+            aria-label="method"
+            id="post"
+            type="radio"
+            name="method"
+            value="POST"
+            onChange={onChange} />
+          <label htmlFor="patch">PATCH</label>
+          <input
+            aria-label="method"
+            id="patch"
+            type="radio"
+            name="method"
+            value="PATCH"
+            onChange={onChange} />
+          <label htmlFor="delete">DELETE</label>
+          <input
+            aria-label="method"
+            id="delete"
+            type="radio"
+            name="method"
+            value="DELETE"
+            onChange={onChange} />
+          <button
+            aria-label="get-api"
+            type="submit">Go!</button>
+        </div>
+        <div>
+          <textarea
+            placeholder="Raw JSON Body"
+            name="body"
+            value={body}
+            rows="5"
+            cols="40"
+            onChange={onChange}
+          ></textarea>
+        </div>
       </form>
     </>
   );
