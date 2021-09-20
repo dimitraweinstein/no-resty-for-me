@@ -12,22 +12,29 @@ export default class RestyContainer extends Component {
     body: '',
     jsonResponse: {
       'Fetch Me!': 'Fetch Me Right Now!'
-    }
+    },
+    urlList: [],
   }
 
+  // localStoredURL = localStorage.getItem(this.state.url);
+
   handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState({ [ event.target.name ]: event.target.value });
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { url, method, body } = this.state;
+    const { url, method, body, urlList } = this.state;
+    // localStorage.setItem(['url'], this.state.url);
     fetchApi(url, method, body)
-      .then((jsonResponse => this.setState({ jsonResponse })));
+      // .then((url) => localStorage.setItem(url))
+      .then((jsonResponse => this.setState({ jsonResponse })))
+      .then((url, method) => urlList.push({ method, url }));
   }
 
   render() {
     const { url, method, body, jsonResponse } = this.state;
+   
     return (
       <>
         <Controls
@@ -37,7 +44,9 @@ export default class RestyContainer extends Component {
           onChange={this.handleChange}
           onSubmit={this.handleSubmit}
         />
-        <History url={url} />
+        <History
+          onSubmit={this.handleSubmit}
+        />
         <Display jsonResponse={jsonResponse} />
       </>
     );

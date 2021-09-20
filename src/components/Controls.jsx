@@ -60,8 +60,8 @@ const Controls = ({ url, body, onChange, onSubmit }) => {
           placeholder="Raw JSON Body"
           name="body"
           value={body}
-          rows="10"
-          cols="50"
+          rows="5"
+          cols="40"
           onChange={onChange}
         ></textarea>
       </form>
